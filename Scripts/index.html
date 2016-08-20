@@ -1,0 +1,65 @@
+<script type="text/javascript">
+var pos=100;
+var context;
+var dx= 4;
+var dy=4;
+var y=150;
+var x=10;
+function draw(){
+	context= myCanvas.getContext('2d');
+	context.clearRect(0,0,300,300);
+	context.beginPath();
+	context.fillStyle="#0000ff";
+	context.arc(x,y,20,0,Math.PI*2,true);
+	context.closePath();
+	context.fill();
+	if( x<0 || x>300)
+	dx=-dx;
+	if( y<0 || y>300)
+		dy=-dy;
+		x+=dx;
+		y+=dy;
+	}
+
+function Scroll() {
+  if (!document.getElementById) return;
+  obj=document.getElementById("thetext");
+  pos -=1;
+  if (pos < 0-obj.offsetHeight+200) return;
+  obj.style.top=pos;
+  window.setTimeout("Scroll()",30);
+}
+setInterval(draw,20); 
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML5 Bouncing Ball</title>
+<style type="text/css">
+<!--
+body { font:normal 12px/18px Arial, Helvetica, sans-serif; }
+h1 { display:block; width:1000px; margin:20px auto; padding-bottom:20px; font:normal 34px/50px Georgia, "Times New Roman", Times, serif; color:#333; text-shadow: 1px 2px 3px #ccc; border-bottom:1px solid #cbcbcb; }
+
+
+#nav { display:block; width:1000%; text-align:center; }
+#nav li { display:block; font-weight:bold; line-height:21px; text-shadow:1px 1px 1px #fff; width:600px; height:31px; padding:5px; margin:0 10px; background:#e0e0e0; border:1px solid #ccc; -moz-border-radius:4px;-webkit-border-radius:4px;  float:left; }
+#nav li a { color:#000; display:block; text-decoration:none; width:100%; height:100%; }
+-->
+</style>
+</head>
+<body background="1344131741870886.jpg"  onLoad="Scroll()" >
+<div>
+	
+	<canvas id="myCanvas" width="300" height="300"></canvas>
+
+
+</div>
+<div id="thetext" style="position:absolute;width:300;left:500;top:50">
+<div id="thewindow" style="position:relative;width:250;height:250;
+  overflow:hidden; border-width:2px;  ">
+<font color="white"><p>My hobby is to play volleyball.In my school days i played a lot.I even got a change to play in the inter school competition.However, thesedays i do not get time to play but would continue in future.My favourite volleyball player is Jimmy George. He is the first Indian volleyball player to become a professional and played club volleyball in Italy " </p></font>
+
+
+</body>
+</html>
